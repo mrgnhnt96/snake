@@ -1,5 +1,4 @@
 import 'package:nocterm/nocterm.dart';
-import 'package:snake/src/components/builder.dart';
 
 part '__internal/__provide.dart';
 part 'build_context_extensions.dart';
