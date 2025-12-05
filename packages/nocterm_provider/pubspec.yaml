@@ -1,0 +1,12 @@
+name: nocterm_provider
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.9.0 <4.0.0"
+
+dependencies:
+  meta: ^1.17.0
+  nocterm: 0.1.0
+  nocterm_nested:
+    path: ../nocterm_nested
