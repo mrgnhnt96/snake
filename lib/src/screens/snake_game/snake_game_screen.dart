@@ -1,6 +1,6 @@
 import 'package:nocterm/nocterm.dart';
+import 'package:nocterm_provider/provider.dart';
 import 'package:snake/src/models/difficulty.dart';
-import 'package:snake/src/provider/provider.dart';
 
 part 'components/__map.dart';
 

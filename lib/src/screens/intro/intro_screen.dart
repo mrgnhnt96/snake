@@ -1,7 +1,7 @@
 import 'package:nocterm/nocterm.dart';
+import 'package:nocterm_provider/provider.dart';
 import 'package:snake/src/data/nav.dart';
 import 'package:snake/src/models/difficulty.dart';
-import 'package:snake/src/provider/provider.dart';
 
 part 'components/__difficulty.dart';
 part 'components/__instructions.dart';
@@ -13,7 +13,7 @@ class IntroScreen extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return Provider(
+    return ChangeNotifierProvider(
       create: (_) => _Choice(),
       child: Column(
         children: [

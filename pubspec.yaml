@@ -8,3 +8,5 @@ dependencies:
   file: ^7.0.1
   nocterm: 0.1.0
   scoped_deps: ^0.1.0+2
+  nocterm_provider:
+    path: packages/nocterm_provider

@@ -1,6 +1,6 @@
 import 'package:nocterm/nocterm.dart';
+import 'package:nocterm_provider/provider.dart';
 import 'package:snake/src/data/nav.dart';
-import 'package:snake/src/provider/provider.dart';
 
 part 'components/__try_again.dart';
 
