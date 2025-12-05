@@ -1,0 +1,7 @@
+[2025-12-05T01:44:06.761764] executableArguments: [--enable-vm-service, --enable-asserts, --pause-isolates-on-start]
+[2025-12-05T01:44:06.763494] [HotReload] Initializing hot reload support...
+[2025-12-05T01:44:06.769640] [HotReload] VM Service URL: http://127.0.0.1:8181/oQq_kB8lgbM=/
+[2025-12-05T01:44:06.771374] [HotReload] DevTools URL: http://127.0.0.1:8181/oQq_kB8lgbM=/devtools/?uri=ws://127.0.0.1:8181/oQq_kB8lgbM=/ws
+[2025-12-05T01:44:07.246903] [HotReload] Hot reload initialized successfully
+[2025-12-05T01:44:07.247100] [HotReload] Watching for changes in lib/, bin/, and test/ directories...
+[2025-12-05T01:53:52.652615] [HotReload] Hot reload stopped
