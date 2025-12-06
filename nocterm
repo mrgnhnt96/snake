@@ -1,0 +1,20 @@
+#!/bin/bash
+
+export NOCTERM_CLI_LOCATION="file:///Users/morgan/Documents/develop.nosync/open_source_contributing/nocterm/packages/nocterm_cli/lib/"
+
+# Ensure the nocterm executable exists
+if [ ! -f "/Users/morgan/.nocterm/f3193b966f8a0597/exe" ]; then
+  echo "Error: Nocterm executable not found at: /Users/morgan/.nocterm/f3193b966f8a0597/exe"
+  exit 1
+fi
+
+# Run the nocterm executable
+/Users/morgan/.nocterm/f3193b966f8a0597/exe "${@}"
+
+EXIT_CODE=$?
+
+if [ $EXIT_CODE -ne 0 ]; then
+  /Users/morgan/.nocterm/f3193b966f8a0597/exe restore-shell
+fi
+
+exit $EXIT_CODE

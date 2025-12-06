@@ -1,3 +1,15 @@
 dependency_overrides:
   nocterm:
-    path: /Users/morgan/Documents/develop.nosync/open_source_contributing/nocterm
+    git:
+      url: https://github.com/mrgnhnt96/nocterm
+      ref: mrgnhnt/support-provider
+  nocterm_provider:
+    git:
+      url: https://github.com/mrgnhnt96/nocterm
+      ref: mrgnhnt/create-provider
+      path: packages/nocterm_provider
+  nocterm_nested:
+    git:
+      url: https://github.com/mrgnhnt96/nocterm
+      ref: mrgnhnt/create-provider
+      path: packages/nocterm_nested

@@ -7,12 +7,21 @@ class _Map extends StatelessComponent {
   Component build(BuildContext context) {
     final difficulty = context.read<Difficulty>();
 
-    final (width, height) = difficulty.mapSize;
+    final size = difficulty.size;
 
-    return Container(
-      height: height,
-      width: width,
-      decoration: BoxDecoration(border: BoxBorder.all(color: Colors.white)),
+    return Center(
+      child: Container(
+        decoration: BoxDecoration(border: BoxBorder.all(color: Colors.white)),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: List.generate(size, (r) {
+            return Row(
+              mainAxisSize: MainAxisSize.min,
+              children: List.generate(size, (c) => _Tile(Place(c, r))),
+            );
+          }),
+        ),
+      ),
     );
   }
 }

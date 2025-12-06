@@ -124,24 +124,30 @@ packages:
   nocterm:
     dependency: "direct main"
     description:
-      path: "/Users/morgan/Documents/develop.nosync/open_source_contributing/nocterm"
-      relative: false
-    source: path
+      path: "."
+      ref: "mrgnhnt/support-provider"
+      resolved-ref: "78fa30fe511a92cffed781a0b7db5fea104ddb8a"
+      url: "https://github.com/mrgnhnt96/nocterm"
+    source: git
     version: "0.1.0"
   nocterm_nested:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "packages/nocterm_nested"
-      relative: true
-    source: path
+      ref: "mrgnhnt/create-provider"
+      resolved-ref: "5550af1aee0d5c3d94e1f71bba4e6c18060350bc"
+      url: "https://github.com/mrgnhnt96/nocterm"
+    source: git
     version: "1.0.0"
   nocterm_provider:
     dependency: "direct main"
     description:
       path: "packages/nocterm_provider"
-      relative: true
-    source: path
-    version: "1.0.0"
+      ref: "mrgnhnt/create-provider"
+      resolved-ref: "5550af1aee0d5c3d94e1f71bba4e6c18060350bc"
+      url: "https://github.com/mrgnhnt96/nocterm"
+    source: git
+    version: "0.0.1"
   path:
     dependency: transitive
     description:
