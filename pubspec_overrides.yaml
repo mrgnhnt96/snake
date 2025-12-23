@@ -2,14 +2,16 @@ dependency_overrides:
   nocterm:
     git:
       url: https://github.com/mrgnhnt96/nocterm
-      ref: mrgnhnt/support-provider
+      ref: mrgnhnt/builder
+  nocterm_cli:
+    git:
+      url: https://github.com/Norbert515/nocterm
+      path: packages/nocterm_cli
   nocterm_provider:
     git:
-      url: https://github.com/mrgnhnt96/nocterm
-      ref: mrgnhnt/create-provider
+      url: https://github.com/Norbert515/nocterm
       path: packages/nocterm_provider
   nocterm_nested:
     git:
-      url: https://github.com/mrgnhnt96/nocterm
-      ref: mrgnhnt/create-provider
+      url: https://github.com/Norbert515/nocterm
       path: packages/nocterm_nested

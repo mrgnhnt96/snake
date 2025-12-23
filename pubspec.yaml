@@ -9,3 +9,6 @@ dependencies:
   nocterm: 0.1.0
   scoped_deps: ^0.1.0+2
   nocterm_provider:
+
+dev_dependencies:
+  nocterm_cli:

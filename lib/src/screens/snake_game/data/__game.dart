@@ -3,35 +3,61 @@ part of '../snake_game_screen.dart';
 enum Direction { up, down, left, right }
 
 class _Game extends ChangeNotifier {
-  _Game({required Difficulty difficulty}) : _difficulty = difficulty {
+  _Game({required Difficulty difficulty})
+    : _difficulty = difficulty,
+      _movingController = StreamController<void>() {
     _body = List.generate(2, (index) {
       return Place(head.x, head.y + index + 1);
     });
 
     _setMouse();
+    _startMoving();
+    _movingController.add(null);
+  }
 
-    _ticker = Timer.periodic(speed, (timer) {
+  bool _isMoving = false;
+  void _startMoving() async {
+    if (_isMoving) return;
+    _isMoving = true;
+
+    var count = 0;
+    final completers = <int, Completer<void>?>{};
+    completers[count] = Completer()
+      ..future.then((_) => _movingController.add(null));
+
+    void Function() complete(int index) {
+      return () {
+        final completer = completers.remove(index);
+        completer?.complete();
+      };
+    }
+
+    await for (final _ in _movingController.stream) {
+      completers[count] = null;
+      count++;
+
       _move();
       _canChangeDirection = true;
-    });
+
+      completers[count] = Completer()
+        ..future.then((_) => _movingController.add(null));
+      Future.delayed(speed, complete(count));
+    }
   }
 
   final Difficulty _difficulty;
-  late final Timer _ticker;
+  final StreamController<void> _movingController;
 
   bool _canChangeDirection = true;
-
-  @override
-  void dispose() {
-    _ticker.cancel();
-    super.dispose();
-  }
 
   Direction _direction = Direction.right;
   Direction get direction => _direction;
 
   set direction(Direction direction) {
-    if (_direction == direction) return;
+    if (_direction == direction) {
+      _movingController.add(null);
+      return;
+    }
     if (!_canChangeDirection) return;
     _canChangeDirection = false;
 
@@ -91,7 +117,8 @@ class _Game extends ChangeNotifier {
     _head = newHead;
 
     if (intercectsWithBody) {
-      _ticker.cancel();
+      _movingController.close();
+      return;
     }
 
     if (newHead == _mouse) {

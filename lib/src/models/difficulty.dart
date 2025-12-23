@@ -12,8 +12,8 @@ enum Difficulty {
   };
 
   Duration get speed => switch (this) {
-    easy => const Duration(milliseconds: 250),
-    medium => const Duration(milliseconds: 150),
-    hard => const Duration(milliseconds: 100),
+    easy => const Duration(milliseconds: 750),
+    medium => const Duration(milliseconds: 500),
+    hard => const Duration(milliseconds: 250),
   };
 }

@@ -16,7 +16,7 @@ class _Difficulty extends StatelessComponent {
           case LogicalKey.space:
             context.read<_Choice>().select();
           case LogicalKey.enter:
-            final choice = context.read<_Choice>().difficulty;
+            final choice = context.read<_Choice>().focused;
             context.read<NavStack>().push(GameRoute(choice));
           default:
             return false;

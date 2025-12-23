@@ -125,27 +125,36 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "mrgnhnt/support-provider"
-      resolved-ref: "78fa30fe511a92cffed781a0b7db5fea104ddb8a"
+      ref: "mrgnhnt/builder"
+      resolved-ref: f9217bb1a4ad43a1dc2a464780a0598b49096c10
       url: "https://github.com/mrgnhnt96/nocterm"
     source: git
     version: "0.1.0"
+  nocterm_cli:
+    dependency: "direct dev"
+    description:
+      path: "packages/nocterm_cli"
+      ref: HEAD
+      resolved-ref: "8db525f6fd46258cefdc8c76dc03684203e613db"
+      url: "https://github.com/Norbert515/nocterm"
+    source: git
+    version: "1.0.0"
   nocterm_nested:
     dependency: "direct overridden"
     description:
       path: "packages/nocterm_nested"
-      ref: "mrgnhnt/create-provider"
-      resolved-ref: "5550af1aee0d5c3d94e1f71bba4e6c18060350bc"
-      url: "https://github.com/mrgnhnt96/nocterm"
+      ref: HEAD
+      resolved-ref: a3f9f59dae8979223cc6a991502be8711a181026
+      url: "https://github.com/Norbert515/nocterm"
     source: git
-    version: "1.0.0"
+    version: "0.0.1"
   nocterm_provider:
     dependency: "direct main"
     description:
       path: "packages/nocterm_provider"
-      ref: "mrgnhnt/create-provider"
-      resolved-ref: "5550af1aee0d5c3d94e1f71bba4e6c18060350bc"
-      url: "https://github.com/mrgnhnt96/nocterm"
+      ref: HEAD
+      resolved-ref: a3f9f59dae8979223cc6a991502be8711a181026
+      url: "https://github.com/Norbert515/nocterm"
     source: git
     version: "0.0.1"
   path:
@@ -248,10 +257,10 @@ packages:
     dependency: transitive
     description:
       name: watcher
-      sha256: "592ab6e2892f67760543fb712ff0177f4ec76c031f02f5b4ff8d3fc5eb9fb61a"
+      sha256: f52385d4f73589977c80797e60fe51014f7f2b957b5e9a62c3f6ada439889249
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.4"
+    version: "1.2.0"
   zmodem:
     dependency: transitive
     description:
