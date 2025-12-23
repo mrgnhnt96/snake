@@ -3,9 +3,12 @@ part of '../snake_game_screen.dart';
 enum Direction { up, down, left, right }
 
 class _Game extends ChangeNotifier {
-  _Game({required Difficulty difficulty})
-    : _difficulty = difficulty,
-      _movingController = StreamController<void>() {
+  _Game({
+    required Difficulty difficulty,
+    required void Function(int score) onGameOver,
+  }) : _difficulty = difficulty,
+       _movingController = StreamController<void>(),
+       _onGameOver = onGameOver {
     _body = List.generate(2, (index) {
       return Place(head.x, head.y + index + 1);
     });
@@ -17,6 +20,7 @@ class _Game extends ChangeNotifier {
 
   final Difficulty _difficulty;
   final StreamController<void> _movingController;
+  final void Function(int score) _onGameOver;
 
   @override
   void dispose() {
@@ -48,11 +52,10 @@ class _Game extends ChangeNotifier {
       notifyListeners();
     }
 
-    _gameOver = true;
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      _onGameOver(score);
+    });
   }
-
-  bool _gameOver = false;
-  bool get gameOver => _gameOver;
 
   bool _isMoving = false;
   void _startMoving() async {

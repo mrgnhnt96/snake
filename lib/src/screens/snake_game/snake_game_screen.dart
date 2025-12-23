@@ -3,13 +3,14 @@ import 'dart:math';
 
 import 'package:nocterm/nocterm.dart';
 import 'package:nocterm_provider/provider.dart';
+import 'package:snake/src/data/nav.dart';
 import 'package:snake/src/models/difficulty.dart';
 import 'package:snake/src/models/place.dart';
 
 part 'components/__controls.dart';
 part 'components/__map.dart';
-part 'components/__tile.dart';
 part 'components/__score.dart';
+part 'components/__tile.dart';
 part 'data/__game.dart';
 
 class SnakeGameScreen extends StatelessComponent {
@@ -22,7 +23,14 @@ class SnakeGameScreen extends StatelessComponent {
     return MultiProvider(
       providers: [
         Provider.value(value: difficulty),
-        ChangeNotifierProvider(create: (_) => _Game(difficulty: difficulty)),
+        ChangeNotifierProvider(
+          create: (_) => _Game(
+            difficulty: difficulty,
+            onGameOver: (score) {
+              context.read<NavStack>().push(GameOverRoute(score: score));
+            },
+          ),
+        ),
       ],
       child: _Controls(child: const _Map()),
     );

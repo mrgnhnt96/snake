@@ -28,10 +28,12 @@ class GameRoute extends Route {
 }
 
 class GameOverRoute extends Route {
-  const GameOverRoute();
+  const GameOverRoute({required this.score});
+
+  final int score;
 
   @override
-  Component get component => const GameOverScreen();
+  Component get component => GameOverScreen(score: score);
 }
 
 class WinnerRoute extends Route {
