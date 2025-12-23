@@ -9,6 +9,7 @@ import 'package:snake/src/models/place.dart';
 part 'components/__controls.dart';
 part 'components/__map.dart';
 part 'components/__tile.dart';
+part 'components/__score.dart';
 part 'data/__game.dart';
 
 class SnakeGameScreen extends StatelessComponent {

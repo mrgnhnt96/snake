@@ -10,17 +10,25 @@ class _Map extends StatelessComponent {
     final size = difficulty.size;
 
     return Center(
-      child: Container(
-        decoration: BoxDecoration(border: BoxBorder.all(color: Colors.white)),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: List.generate(size, (r) {
-            return Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const _Score(),
+          Container(
+            decoration: BoxDecoration(
+              border: BoxBorder.all(color: Colors.white),
+            ),
+            child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: List.generate(size, (c) => _Tile(Place(c, r))),
-            );
-          }),
-        ),
+              children: List.generate(size, (r) {
+                return Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: List.generate(size, (c) => _Tile(Place(c, r))),
+                );
+              }),
+            ),
+          ),
+        ],
       ),
     );
   }

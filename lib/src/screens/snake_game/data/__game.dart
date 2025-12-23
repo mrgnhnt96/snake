@@ -15,6 +15,20 @@ class _Game extends ChangeNotifier {
     _movingController.add(null);
   }
 
+  final Difficulty _difficulty;
+  final StreamController<void> _movingController;
+
+  @override
+  void dispose() {
+    _movingController.close();
+    super.dispose();
+  }
+
+  void _die() {
+    _movingController.close();
+    notifyListeners();
+  }
+
   bool _isMoving = false;
   void _startMoving() async {
     if (_isMoving) return;
@@ -45,9 +59,6 @@ class _Game extends ChangeNotifier {
     }
   }
 
-  final Difficulty _difficulty;
-  final StreamController<void> _movingController;
-
   bool _canChangeDirection = true;
 
   Direction _direction = Direction.right;
@@ -55,6 +66,7 @@ class _Game extends ChangeNotifier {
 
   set direction(Direction direction) {
     if (_direction == direction) {
+      _updateScore(plus: 1);
       _movingController.add(null);
       return;
     }
@@ -73,6 +85,14 @@ class _Game extends ChangeNotifier {
     }
 
     _direction = direction;
+    _movingController.add(null);
+    notifyListeners();
+  }
+
+  int _score = 0;
+  int get score => _score;
+  void _updateScore({required int plus}) {
+    _score += plus;
     notifyListeners();
   }
 
@@ -117,7 +137,7 @@ class _Game extends ChangeNotifier {
     _head = newHead;
 
     if (intercectsWithBody) {
-      _movingController.close();
+      _die();
       return;
     }
 
@@ -133,6 +153,7 @@ class _Game extends ChangeNotifier {
   Place get mouse => _mouse;
 
   void gotMouse() {
+    _updateScore(plus: 100);
     _setMouse();
     final [...body, last] = _body;
 
