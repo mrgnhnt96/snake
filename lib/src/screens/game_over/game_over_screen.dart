@@ -15,6 +15,7 @@ class GameOverScreen extends StatelessComponent {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        SizedBox(height: 1),
         Text('''
  ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ 
 ██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗
