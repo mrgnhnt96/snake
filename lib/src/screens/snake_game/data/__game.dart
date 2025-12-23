@@ -24,10 +24,35 @@ class _Game extends ChangeNotifier {
     super.dispose();
   }
 
+  bool _isDead = false;
+  bool isDead(Place place) => _isDead && _deadParts.contains(place);
+  List<Place> _deadParts = [];
   void _die() {
     _movingController.close();
+    _isDead = true;
     notifyListeners();
+
+    _killParts();
   }
+
+  Future<void> _killParts() async {
+    if (!_isDead) {
+      assert(false, 'Expected game to be dead');
+      return;
+    }
+
+    _deadParts = [];
+    for (final part in _body.reversed.followedBy([head])) {
+      await Future.delayed(const Duration(milliseconds: 100));
+      _deadParts.add(part);
+      notifyListeners();
+    }
+
+    _gameOver = true;
+  }
+
+  bool _gameOver = false;
+  bool get gameOver => _gameOver;
 
   bool _isMoving = false;
   void _startMoving() async {
